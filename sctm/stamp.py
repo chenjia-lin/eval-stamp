@@ -351,7 +351,7 @@ class STAMP:
         self.device = device
         self.model = self.model.to(device)
 
-        avg_loss = np.Inf
+        avg_loss = np.inf
 
         if early_stop:
             self.early_stopper = EarlyStopper(patience=patience)
@@ -793,7 +793,7 @@ class EarlyStopper:
 
     def reset(self):
         self.counter = 0
-        self.min_training_loss = np.Inf
+        self.min_training_loss = np.inf
 
 
 class ConvergenceTracker:
@@ -810,10 +810,10 @@ class ConvergenceTracker:
         elif training_loss > (self.min_training_loss + self.min_delta):
             self.counter += 1
             if self.counter >= self.patience:
-                self.min_training_loss = -np.Inf
+                self.min_training_loss = -np.inf
                 return False
         return True
 
     def reset(self):
         self.counter = 0
-        self.min_training_loss = np.Inf
+        self.min_training_loss = np.inf
